@@ -6,6 +6,7 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use Twig\Extension\CoreExtension;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 
@@ -44,6 +45,7 @@ abstract class Controller {
             ]);
 
             self::$twigInstance->addExtension(new DebugExtension());
+            self::$twigInstance->getExtension(CoreExtension::class)->setNumberFormat(2, ', ', ' ');
         }
 
         return self::$twigInstance;

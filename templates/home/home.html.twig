@@ -1,1 +1,36 @@
-coucou
+{% extends 'base.html.twig' %}
+
+{% block title %} Ma super app home page {% endblock %}
+
+{% block css %}
+
+    <link rel="stylesheet" href="/assets/css/home.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A blanditiis
+        dignissimos dolor earum eius illum laudantium minima nisi nobis quibusdam
+        saepe, sequi sunt vel. Atque ducimus odit officia quis quod?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium
+        adipisci eligendi est nisi sequi ut. A accusamus aperiam asperiores cumque
+        dignissimos, impedit necessitatibus omnis quasi tempora unde, ut vero.
+    </p>
+    <div class="hello">
+        coucou {{ user }}
+    </div>
+
+    {% include '_partials/_uncensored_list.html.twig'  with{items: hobbies, class: 'hobbies'} %}
+    {% include '_partials/_uncensored_list.html.twig'  with {items: sexe} %}
+
+    <div>
+        {{  montant |number_format }}
+    </div>
+    <div>
+        {{  montant verser le |number_format }}
+    </div>
+{% endblock %}
+
